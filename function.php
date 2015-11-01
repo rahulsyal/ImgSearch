@@ -1,8 +1,8 @@
 <?php
 
 function getScreenshot ($url, $args){
-	$access_key = "";
-	$secret_keyword = "";
+	$access_key = ""; #removed intentionally.
+	$secret_keyword = ""; #removed intentionally.
 
 	$params['url'] = urlencode($url);
 	$params+= $args;
@@ -58,8 +58,9 @@ if (isset($_GET['query'])){
 		}
 	}
 	$list = array_values(array_filter($list));
+	print("<center><h1>Search results for: " . $_GET["query"]. "</h1></center><br>");
+	print("<center><h4>Click on a screenshot to visit its respective website.</h4></center>");
 	for($x = 0; $x < 5; $x++) {
-    	echo $list[$x];
     	print "<br>";
     	$params['delay'] = '5';
 		$formURL = $list[$x];
@@ -67,7 +68,7 @@ if (isset($_GET['query'])){
 		$str = file_get_contents($call);
 		$json = json_decode($str, true); // decode the JSON into an associative array;
 		echo '<pre>' . print_r($json, true) . '</pre>';
-		print("<a href= $call><img src = ". $call . " width = '500'></a>");
+		print("<center><a href= $formURL><img src = ". $call . " width = '700'></a></center><br>");
 	}
 
 }
