@@ -1,8 +1,8 @@
 <?php
 
 function getScreenshot ($url, $args){
-	$access_key = ""; #removed intentionally.
-	$secret_keyword = ""; #removed intentionally.
+	$access_key = ""; #removed intentionally
+	$secret_keyword = ""; #removed intentionally
 
 	$params['url'] = urlencode($url);
 	$params+= $args;
